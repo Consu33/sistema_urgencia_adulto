@@ -23,3 +23,13 @@ Route::get('/admin/admisiones/{id}/edit', [App\Http\Controllers\AdminisionContro
 Route::put('/admin/admisiones/{id}', [App\Http\Controllers\AdminisionController::class, 'update'])->name('admin.admisiones.update')->middleware('auth');
 Route::get('/admin/admisiones/{id}/confirm-delete', [App\Http\Controllers\AdminisionController::class, 'confirmDelete'])->name('admin.admisiones.confirmDelete')->middleware('auth');
 Route::delete('/admin/admisiones/{id}', [App\Http\Controllers\AdminisionController::class, 'destroy'])->name('admin.admisiones.destroy')->middleware('auth');
+
+//Rutas para el administrador - usuarios enfermeros
+Route::get('/admin/enfermeros', [App\Http\Controllers\EnfermeroController::class, 'index'])->name('admin.enfermeros.index')->middleware('auth');
+Route::get('/admin/enfermeros/create', [App\Http\Controllers\EnfermeroController::class, 'create'])->name('admin.enfermeros.create')->middleware('auth');
+Route::post('/admin/enfermeros/create', [App\Http\Controllers\EnfermeroController::class, 'store'])->name('admin.enfermeros.store')->middleware('auth');
+Route::get('/admin/enfermeros/{id}', [App\Http\Controllers\EnfermeroController::class, 'show'])->name('admin.enfermeros.show')->middleware('auth');
+Route::get('/admin/enfermeros/{id}/edit', [App\Http\Controllers\EnfermeroController::class, 'edit'])->name('admin.enfermeros.edit')->middleware('auth');
+Route::put('/admin/enfermeros/{id}', [App\Http\Controllers\EnfermeroController::class, 'update'])->name('admin.enfermeros.update')->middleware('auth');
+Route::get('/admin/enfermeros/{id}/confirm-delete', [App\Http\Controllers\EnfermeroController::class, 'confirmDelete'])->name('admin.enfermeros.confirmDelete')->middleware('auth');
+Route::delete('/admin/enfermeros/{id}', [App\Http\Controllers\EnfermeroController::class, 'destroy'])->name('admin.enfermeros.destroy')->middleware('auth');

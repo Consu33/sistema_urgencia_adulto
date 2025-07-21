@@ -6,20 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    
     public function up(): void
     {
         Schema::create('enfermeros', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',50);
+            $table->string('apellido',50);
+            $table->string('rut', 12)->unique();
+            $table->boolean('es_medico')->default(false); // Falso: se relacionara con enfermero / True: Medico
+            
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
         Schema::dropIfExists('enfermeros');
