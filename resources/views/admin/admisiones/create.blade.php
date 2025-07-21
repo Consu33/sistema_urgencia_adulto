@@ -1,0 +1,104 @@
+@extends('layouts.admin')
+
+@section('content')
+    <div class="row">
+        <h1>Registro de usuarios admisión</h1>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Completar los datos</h3>
+                    <div class="card-tools">
+
+                    </div>
+                </div>
+                <div class="card-body" style="display: block;">
+                    <form action="{{ URL('/admin/admisiones/create') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form group">
+                                    <label for="">Nombre</label> <b>*</b>
+                                    <input type="text" value="{{ old('name') }}" name="name" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form group">
+                                    <label for="">Apellido</label> <b>*</b>
+                                    <input type="text" value="{{ old('apellido') }}" name="apellido" class="form-control"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form group">
+                                    <label for="">Rut</label> <b>*</b>
+                                    <input type="text" value="{{ old('rut') }}" name="rut" class="form-control" required>
+                                    @error('rut')
+                                        <small style="color:red">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form group">
+                                    <label for="">Correo</label> <b>*</b>
+                                    <input type="email" value="{{ old('email') }}" name="email" class="form-control"
+                                        required>
+                                    @error('email')
+                                        <small style="color:red">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form group">
+                                    <label for="">Contraseña</label> <b>*</b>
+                                    <input type="password" name="password" class="form-control" required>
+                                    @error('password')
+                                        <small style="color:red">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form group">
+                                    <label for="">Verificación Contraseña</label> <b>*</b>
+                                    <input type="password" name="password_confirmation" class="form-control" required>
+                                    @error('password_confirmation')
+                                        <small style="color:red">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form group">
+                                    <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary">Cancelar</a>
+                                    <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
