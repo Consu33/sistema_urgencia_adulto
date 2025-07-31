@@ -26,7 +26,6 @@
                                 <td style="text-align:center">Nombre</td>
                                 <td style="text-align:center">Apellido</td>
                                 <td style="text-align:center">rut</td>
-                                <td style="text-align:center">Cargo</td>
                                 <td style="text-align:center">Acciones</td>
                             </tr>
                         </thead>
@@ -35,10 +34,9 @@
                             @foreach ($enfermeros as $enfermero)
                                 <tr>
                                     <td style="text-align:center">{{ $contador++ }}</td>
-                                    <td>{{ $enfermero->nombre }}</td>
-                                    <td>{{ $enfermero->apellido }}</td>
-                                    <td>{{ $enfermero->rut }}</td>
-                                    <td>{{ $enfermero->es_medico }}</td>
+                                    <td style="text-align:center">{{ $enfermero->nombre }}</td>
+                                    <td style="text-align:center">{{ $enfermero->apellido }}</td>
+                                    <td style="text-align:center">{{ $enfermero->rut }}</td>
                                     <td style="text-align:center">
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="{{url('admin/enfermeros/'.$enfermero->id)}}" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>

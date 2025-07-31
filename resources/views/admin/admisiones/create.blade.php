@@ -54,19 +54,6 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <label for="">Correo</label> <b>*</b>
-                                    <input type="email" value="{{ old('email') }}" name="email" class="form-control"
-                                        required>
-                                    @error('email')
-                                        <small style="color:red">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form group">
                                     <label for="">Contraseña</label> <b>*</b>
                                     <input type="password" name="password" class="form-control" required>
                                     @error('password')

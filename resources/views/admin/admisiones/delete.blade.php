@@ -48,18 +48,6 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form group">
-                                    <label for="">Correo</label>
-                                    <input type="email" value="{{ $admision->email }}" name="email" class="form-control" disabled>
-                                    @error('email')
-                                        <small style="color:red">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
                         <hr>
                         <div class="row">
                             <div class="col-md-12">

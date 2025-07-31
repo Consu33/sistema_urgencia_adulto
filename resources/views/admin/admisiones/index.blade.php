@@ -25,7 +25,6 @@
                                 <td style="text-align:center">Número</td>
                                 <td style="text-align:center">Nombre</td>
                                 <td style="text-align:center">Apellido</td>
-                                <td style="text-align:center">Correo</td>
                                 <td style="text-align:center">Acciones</td>
                             </tr>
                         </thead>
@@ -34,9 +33,8 @@
                             @foreach ($admisiones as $admision)
                                 <tr>
                                     <td style="text-align:center">{{ $contador++ }}</td>
-                                    <td>{{ $admision->name }}</td>
-                                    <td>{{ $admision->apellido }}</td>
-                                    <td>{{ $admision->email }}</td>
+                                    <td style="text-align:center">{{ $admision->name }}</td>
+                                    <td style="text-align:center">{{ $admision->apellido }}</td>                                    
                                     <td style="text-align:center">
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="{{url('admin/admisiones/'.$admision->id)}}" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>

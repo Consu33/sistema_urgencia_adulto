@@ -30,7 +30,7 @@
                 <div class="icon">
                     <i class="ion fas bi bi-file-person"></i>
                 </div>
-                <a href="{{ url('admin/admisiones') }}" class="small-box-footer">Más Información <i
+                <a href="{{ url('admin/enfermeros') }}" class="small-box-footer">Más Información <i
                         class="fas bi bi-file-person"></i></a>
             </div>
         </div>

@@ -26,7 +26,6 @@ class AdminisionController extends Controller
             'name' => 'required|max:50',
             'apellido' => 'required|max:50',
             'rut' => 'required|max:12|unique:users',
-            'email' => 'required|email|max:50|unique:users',
             'password' => 'required|min:8|confirmed',
         ]);
 
@@ -35,8 +34,7 @@ class AdminisionController extends Controller
         $admision->name = $request->name;
         $admision->apellido = $request->apellido;
         $admision->rut = $request->rut;
-        $admision->email = $request->email;
-        $admision->password = Hash::make($request['password']);
+        $admision->password = Hash::make($request->password);
         $admision->save();
 
         return redirect()->route('admin.admisiones.index')

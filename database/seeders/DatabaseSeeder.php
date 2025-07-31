@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Administrador',
             'apellido' => 'Consuelo',
             'rut' => '16932412-3',
-            'email' => 'admin@admin.com',
             'password' =>Hash::make('123456789')
         ]);
     }

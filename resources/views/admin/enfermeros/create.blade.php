@@ -23,7 +23,7 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <label for="">Nombre</label> <b>*</b>
-                                    <input type="text" value="{{ old('nombre') }}" name="name" class="form-control" required>
+                                    <input type="text" value="{{ old('nombre') }}" name="nombre" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -47,23 +47,7 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form group">
-                                    <label for="">Cargo</label> <b>*</b>
-                                    <select name="es_medico" id="" class="form-control">
-                                        <option value="">-</option>
-                                        <option value="enfermero">Enfermero</option>
-                                        <option value="medico">Medico</option>
-                                    </select>
-                                    @error('es_medico')
-                                        <small style="color:red">{{ $message }}</small>                                        
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
+                        </div>        
                         <br>
                         <div class="row">
                             <div class="col-md-12">
