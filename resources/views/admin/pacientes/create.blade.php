@@ -2,28 +2,28 @@
 
 @section('content')
     <div class="row">
-        <h1>Edición de Enfermero/a: {{ $enfermero->nombre . ' ' . $enfermero->apellido }}</h1>
+        <h1>Registro de pacientes</h1>
     </div>
 
     <hr>
 
     <div class="row">
         <div class="col-md-6">
-            <div class="card card-success">
+            <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Edita los datos</h3>
+                    <h3 class="card-title">Completar los datos</h3>
                     <div class="card-tools">
+
                     </div>
                 </div>
                 <div class="card-body" style="display: block;">
-                    <form action="{{ URL('/admin/enfermeros', $enfermero->id) }}" method="POST" data-spinner-color="success">
+                    <form action="{{ URL('/admin/pacientes/create') }}" method="POST" data-spinner-color="primary">
                         @csrf
-                        @method('PUT')
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <label for="">Nombre</label>
-                                    <input type="text" value="{{ $enfermero->nombre }}" name="nombre" class="form-control" required>
+                                    <label for="">Nombre</label> <b>*</b>
+                                    <input type="text" value="{{ old('nombre') }}" name="nombre" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -31,8 +31,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <label for="">Apellido</label>
-                                    <input type="text" value="{{ $enfermero->apellido }}" name="apellido" class="form-control" required>
+                                    <label for="">Apellido</label> <b>*</b>
+                                    <input type="text" value="{{ old('apellido') }}" name="apellido" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -40,8 +40,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <label for="">Rut</label>
-                                    <input type="text" value="{{ $enfermero->rut }}" name="rut" class="form-control" required>
+                                    <label for="">Rut</label> <b>*</b>
+                                    <input type="text" value="{{ old('rut') }}" name="rut" class="form-control" required>
                                     @error('rut')
                                         <small style="color:red">{{ $message }}</small>
                                     @enderror
@@ -52,8 +52,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <label for="">Contraseña</label>
-                                    <input type="password" name="password" class="form-control">
+                                    <label for="">Contraseña</label> <b>*</b>
+                                    <input type="password" name="password" class="form-control" required>
                                     @error('password')
                                         <small style="color:red">{{ $message }}</small>
                                     @enderror
@@ -64,8 +64,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <label for="">Verificación Contraseña</label>
-                                    <input type="password" name="password_confirmation" class="form-control">
+                                    <label for="">Verificación Contraseña</label> <b>*</b>
+                                    <input type="password" name="password_confirmation" class="form-control" required>
                                     @error('password_confirmation')
                                         <small style="color:red">{{ $message }}</small>
                                     @enderror
@@ -77,8 +77,8 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <a href="{{ url('admin/enfermeros') }}" class="btn btn-secondary cancel-btn">Cancelar</a>
-                                    <button type="submit" class="btn btn-success">
-                                        <i class="bi bi-pencil-fill"></i> Actualizar Registro
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-floppy"></i> Guardar
                                     </button>
                                 </div>
                             </div>

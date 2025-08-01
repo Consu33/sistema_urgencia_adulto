@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Enfermero/a: {{ $enfermero->nombre . ' ' . $enfermero->apellido }}</h1>
+        <h1>Paciente: {{ $paciente->nombre . ' ' . $paciente->apellido }}</h1>
     </div>
 
     <hr>
@@ -21,7 +21,7 @@
                         <div class="col-md-12">
                             <div class="form group">
                                 <label for="">Nombre</label>
-                                <p>{{ $enfermero->nombre }}</p>
+                                <p>{{ $paciente->nombre }}</p>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                         <div class="col-md-12">
                             <div class="form group">
                                 <label for="">Apellido</label>
-                                <p>{{ $enfermero->apellido }}</p>
+                                <p>{{ $paciente->apellido }}</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <div class="col-md-12">
                             <div class="form group">
                                 <label for="">Rut</label>
-                                <p>{{  $enfermero->rut  }}</p>
+                                <p>{{  $paciente->rut  }}</p>
                             </div>
                         </div>
                     </div>                    
@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form group">
-                                <a href="{{ url('admin/enfermeros') }}" class="btn btn-secondary cancel-btn">
+                                <a href="{{ url('admin/pacientes') }}" class="btn btn-secondary cancel-btn">
                                     <i class="bi bi-arrow-left"></i> Volver</a>
                             </div>
                         </div>

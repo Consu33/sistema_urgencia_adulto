@@ -163,9 +163,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary btn-block">
-                                {{ __('Login') }}
-                            </button>
+                            <button type="submit" class="btn btn-primary btn-block">{{ __('Aceptar') }}</button>
                         </div>
                     </div>
                 </form>
@@ -186,7 +184,8 @@
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
         data-cf-beacon='{"rayId":"963365476d902752","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.7.0","token":"2437d112162f4ec4b63c3ca0eb38fb20"}'
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

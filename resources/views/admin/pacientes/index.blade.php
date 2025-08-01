@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Usuarios Adminisión Urgencia Adulto</h1>
+        <h1>Listado de Pacientes</h1>
     </div>
 
     <hr>
@@ -11,10 +11,10 @@
         <div class="col-md-10">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Usuarios Registrados</h3>
+                    <h3 class="card-title">Pacientes Registrados</h3>
                     <div class="card-tools">
-                        <a href="{{ url('admin/admisiones/create') }}" class="btn btn-primary access-btn"><i class="bi bi-plus"></i>
-                            Registrar Nuevo Usuario
+                        <a href="{{ url('admin/pacientes/create') }}" class="btn btn-primary access-btn"><i class="bi bi-plus"></i>
+                            Registrar Nuevo Paciente
                         </a>
                     </div>
                 </div>
@@ -31,17 +31,17 @@
                         </thead>
                         <tbody>
                             <?php $contador = 1; ?>
-                            @foreach ($admisiones as $admision)
+                            @foreach ($pacientes as $paciente)
                                 <tr>
                                     <td style="text-align:center">{{ $contador++ }}</td>
-                                    <td style="text-align:center">{{ $admision->name }}</td>
-                                    <td style="text-align:center">{{ $admision->apellido }}</td>     
-                                    <td style="text-align:center">{{ $admision->rut }}</td>                                
+                                    <td style="text-align:center">{{ $paciente->nombre }}</td>
+                                    <td style="text-align:center">{{ $paciente->apellido }}</td>  
+                                    <td style="text-align:center">{{ $paciente->rut }}</td>                                   
                                     <td style="text-align:center">
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{url('admin/admisiones/'.$admision->id)}}" type="button" class="btn btn-info btn-sm action-btn" data-bs-toggle="tooltip" title="Ver detalles"><i class="bi bi-eye"></i></a>
-                                            <a href="{{url('admin/admisiones/'.$admision->id.'/edit')}}" type="button" class="btn btn-success btn-sm action-btn" data-bs-toggle="tooltip" title="Editar información"><i class="bi bi-pencil"></i></a>
-                                            <a href="{{url('admin/admisiones/'.$admision->id.'/confirm-delete')}}" type="button" class="btn btn-danger btn-sm action-btn" data-bs-toggle="tooltip" title="Eliminar registros"><i class="bi bi-trash"></i></a>
+                                            <a href="{{url('admin/pacientes/'.$paciente->id)}}" type="button" class="btn btn-info btn-sm action-btn" data-bs-toggle="tooltip" title="Ver detalles"><i class="bi bi-eye"></i></a>
+                                            <a href="{{url('admin/pacientes/'.$paciente->id.'/edit')}}" type="button" class="btn btn-success btn-sm action-btn" data-bs-toggle="tooltip" title="Editar información"><i class="bi bi-pencil"></i></a>
+                                            <a href="{{url('admin/pacientes/'.$paciente->id.'/confirm-delete')}}" type="button" class="btn btn-danger btn-sm action-btn" data-bs-toggle="tooltip" title="Eliminar registros"><i class="bi bi-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -57,10 +57,10 @@
                                 dom: '<"row mb-2"<"col-sm-6"B><"col-sm-6"f>>' + '<"row"<"col-sm-12"tr>>' + '<"row mt-2"<"col-sm-5"i><"col-sm-7"p>>',
                                 language: {
                                     emptyTable: "No hay información",
-                                    info: "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-                                    infoEmpty: "Mostrando 0 a 0 de 0 Usuarios",
-                                    infoFiltered: "(Filtrado de _MAX_ total Usuarios)",
-                                    lengthMenu: "Mostrar _MENU_ Usuarios",
+                                    info: "Mostrando _START_ a _END_ de _TOTAL_ Pacientes",
+                                    infoEmpty: "Mostrando 0 a 0 de 0 Pacientes",
+                                    infoFiltered: "(Filtrado de _MAX_ total Pacientes)",
+                                    lengthMenu: "Mostrar _MENU_ Pacientes",
                                     loadingRecords: "Cargando...",
                                     processing: "Procesando...",
                                     search: "Buscador:",

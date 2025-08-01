@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="card-body" style="display: block;">
-                    <form action="{{ URL('/admin/admisiones/create') }}" method="POST">
+                    <form action="{{ URL('/admin/admisiones/create') }}" method="POST" data-spinner-color="primary">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -43,7 +43,8 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <label for="">Rut</label> <b>*</b>
-                                    <input type="text" value="{{ old('rut') }}" name="rut" class="form-control" required>
+                                    <input type="text" value="{{ old('rut') }}" name="rut" class="form-control"
+                                        required>
                                     @error('rut')
                                         <small style="color:red">{{ $message }}</small>
                                     @enderror
@@ -78,8 +79,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary">Cancelar</a>
-                                    <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+                                    <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary cancel-btn">Cancelar</a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="bi bi-floppy"></i> Guardar
+                                    </button>
                                 </div>
                             </div>
                         </div>

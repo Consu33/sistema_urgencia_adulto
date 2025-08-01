@@ -9,6 +9,13 @@ class AdministradorController extends Controller
 {
     public function index(){
         $total_usuarios = User::count();
-        return view('admin.index', compact('total_usuarios'));
+        
+
+        return view('admin.index', compact('total_usuarios'
+            
+        ));
+        
     }
+
+    
 }

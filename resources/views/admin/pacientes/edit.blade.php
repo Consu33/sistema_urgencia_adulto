@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Edición de Enfermero/a: {{ $enfermero->nombre . ' ' . $enfermero->apellido }}</h1>
+        <h1>Edición de Paciente: {{ $paciente->nombre . ' ' . $paciente->apellido }}</h1>
     </div>
 
     <hr>
@@ -16,14 +16,14 @@
                     </div>
                 </div>
                 <div class="card-body" style="display: block;">
-                    <form action="{{ URL('/admin/enfermeros', $enfermero->id) }}" method="POST" data-spinner-color="success">
+                    <form action="{{ URL('/admin/pacientes', $paciente->id) }}" method="POST" data-spinner-color="success">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
                                     <label for="">Nombre</label>
-                                    <input type="text" value="{{ $enfermero->nombre }}" name="nombre" class="form-control" required>
+                                    <input type="text" value="{{ $paciente->nombre }}" name="nombre" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <label for="">Apellido</label>
-                                    <input type="text" value="{{ $enfermero->apellido }}" name="apellido" class="form-control" required>
+                                    <input type="text" value="{{ $paciente->apellido }}" name="apellido" class="form-control" required>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                             <div class="col-md-12">
                                 <div class="form group">
                                     <label for="">Rut</label>
-                                    <input type="text" value="{{ $enfermero->rut }}" name="rut" class="form-control" required>
+                                    <input type="text" value="{{ $paciente->rut }}" name="rut" class="form-control" required>
                                     @error('rut')
                                         <small style="color:red">{{ $message }}</small>
                                     @enderror
@@ -76,7 +76,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <a href="{{ url('admin/enfermeros') }}" class="btn btn-secondary cancel-btn">Cancelar</a>
+                                    <a href="{{ url('admin/pacientes') }}" class="btn btn-secondary cancel-btn">Cancelar</a>
                                     <button type="submit" class="btn btn-success">
                                         <i class="bi bi-pencil-fill"></i> Actualizar Registro
                                     </button>

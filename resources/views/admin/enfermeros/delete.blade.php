@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="card-body" style="display: block;">
-                    <form action="{{ url('admin/enfermeros/' . $enfermero->id) }}" method="POST">
+                    <form action="{{ url('admin/enfermeros/' . $enfermero->id) }}" method="POST" data-spinner-color="danger">
                         @csrf
                         @method('DELETE')
                         <div class="row">
@@ -52,8 +52,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <a href="{{ url('admin/enfermeros') }}" class="btn btn-secondary">Cancelar</a>
-                                    <button type="submit" class="btn btn-danger">Eliminar Usuario</button>
+                                    <a href="{{ url('admin/enfermeros') }}" class="btn btn-secondary cancel-btn">Cancelar</a>
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="bi bi-trash"></i> Eliminar Usuario
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -7,59 +7,93 @@ use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $pacientes = Paciente::all();
+        return view('admin.pacientes.index', compact('pacientes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
-        //
+        return view('admin.pacientes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|max:50',
+            'apellido' => 'required|max:50',
+            'rut' => 'required|max:12|unique:pacientes'
+        ]);
+
+        //se crea un nuevo paciente con los datos del formulario
+        $paciente = new Paciente();
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->rut = $request->rut;
+        $paciente->save();
+
+        return redirect()->route('admin.pacientes.index')
+            ->with('success', 'Paciente registrado exitosamente.')
+            ->with('icono', 'success');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Paciente $paciente)
+    
+    public function show($id)
     {
-        //
+        //variable + modelo
+        $paciente = Paciente::findOrFail($id);
+        // retornamos a la vista que deseamos ver e informamos la variable
+        return view('admin.pacientes.show', compact('paciente'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Paciente $paciente)
+    
+    public function edit($id)
     {
-        //
+        $paciente = Paciente::findOrFail($id);
+        return view('admin.pacientes.edit', compact('paciente'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Paciente $paciente)
+    
+    public function update(Request $request, $id)
     {
-        //
+        $paciente = Paciente::find($id);
+
+        $request->validate([
+            'nombre' => 'required|max:50',
+            'apellido' => 'required|max:50',
+            'rut' => 'required|max:12|unique:pacientes,rut,' .$paciente->id
+        ]);
+
+        //actualizamos los datos del paciente
+        $paciente->nombre = $request->nombre;
+        $paciente->apellido = $request->apellido;
+        $paciente->rut = $request->rut;
+        $paciente->save();
+
+        return redirect()->route('admin.pacientes.index')
+            ->with('mensaje', 'Paciente actualizado exitosamente.')
+            ->with('icono', 'success');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Paciente $paciente)
+    public function confirmDelete($id)
     {
-        //
+        //Muestra la vista de confirmación de eliminación
+        $paciente = Paciente::findOrFail($id);
+        return view('admin.pacientes.delete', compact('paciente'));
+    }
+    
+    public function destroy($id)
+    {
+        //Elimina una admision
+        $paciente = Paciente::findOrFail($id);
+        $paciente->delete();
+
+        return redirect()->route('admin.pacientes.index')
+        ->with('mensaje','Registro Eliminado!')
+        ->with('icono','warning');
+
     }
 }

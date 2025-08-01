@@ -95,7 +95,7 @@
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas bi bi-people-fill"></i>
                                 <p>
-                                    Usuarios Admisión
+                                    Admisión
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -138,6 +138,31 @@
                                 </li>
                             </ul>
                         </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas bi bi-calendar2-plus"></i>
+                                <p>
+                                    Pacientes
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/pacientes/create') }}" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Creación Pacientes</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/pacientes') }}" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Listado Pacientes</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a href="#" class="nav-link" style="background-color: #a9200e">
                                 <i class="nav-icon fas bi bi-door-closed"></i>
@@ -188,6 +213,77 @@
     <script src="{{ url('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ url('dist/js/adminlte.min.js') }}"></script>
+    <!-- iconos tooltips -->
+    <script>
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+            new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <div id="global-spinner" class="spinner-border text-primary" role="status"
+        style="display: none; 
+            width: 4rem; height: 4rem; 
+            position: fixed; top: 50%; 
+            left: 50%; margin-left: -2rem; 
+            margin-top: -2rem; z-index: 9998;
+            ">
+        <span class="visually-hidden"></span>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('form').on('submit', function() {
+                const color = $(this).data('spinner-color') || 'primary';
+                $('#global-spinner')
+                    .removeClass() // limpia cualquier clase previa
+                    .addClass(`spinner-border text-${color}`)
+                    .show();
+
+                $('#blur-overlay').show();
+            });
+
+            // Spinner al hacer clic en botón Cancelar (independiente del formulario)
+            $('.cancel-btn').on('click', function() {
+                $('#blur-overlay').show();
+                $('#global-spinner')
+                    .removeClass()
+                    .addClass('spinner-border text-secondary') // gris para cancelar
+                    .show();
+            });
+
+            // Spinner al hacer clic en botones de acción (ver, editar, eliminar)
+            $('.action-btn').on('click', function() {
+                $('#blur-overlay').show();
+
+                let btnColor = 'info'; // color por defecto
+                if ($(this).hasClass('btn-success')) btnColor = 'success';
+                if ($(this).hasClass('btn-danger')) btnColor = 'danger';
+
+                $('#global-spinner')
+                    .removeClass()
+                    .addClass(`spinner-border text-${btnColor}`)
+                    .show();
+            });
+            
+            // Spinner al hacer clic en agregar nuevos ingresos
+            $('.access-btn').on('click', function() {
+                $('#blur-overlay').show();
+
+                let btnColor = 'primary'; // color por defecto
+                if ($(this).hasClass('btn-success')) btnColor = 'success';
+                if ($(this).hasClass('btn-danger')) btnColor = 'danger';
+
+                $('#global-spinner')
+                    .removeClass()
+                    .addClass(`spinner-border text-${btnColor}`)
+                    .show();
+            });
+
+        });
+    </script>
 </body>
 
 </html>
