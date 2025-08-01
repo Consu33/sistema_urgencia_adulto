@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    //Campos para la tabla paciente
     public function up(): void
     {
         Schema::create('pacientes', function (Blueprint $table) {
@@ -16,6 +14,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('rut', 12)->unique();
+
             $table->timestamps();
         });
     }

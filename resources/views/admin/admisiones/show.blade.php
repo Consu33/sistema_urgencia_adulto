@@ -47,7 +47,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form group">
-                                <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary">Cancelar</a>
+                                <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary cancel-btn">
+                                    <i class="bi bi-arrow-left"></i> Volver</a>
                             </div>
                         </div>
                     </div>

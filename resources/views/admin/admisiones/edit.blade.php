@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="card-body" style="display: block;">
-                    <form action="{{ URL('/admin/admisiones', $admision->id) }}" method="POST">
+                    <form action="{{ URL('/admin/admisiones', $admision->id) }}" method="POST" data-spinner-color="success">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -78,8 +78,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary">Cancelar</a>
-                                    <button type="submit" class="btn btn-success">Actualizar Usuario</button>
+                                    <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary cancel-btn">Cancelar</a>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="bi bi-pencil-fill"></i> Actualizar Usuario
+                                    </button>
                                 </div>
                             </div>
                         </div>

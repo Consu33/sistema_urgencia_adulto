@@ -21,6 +21,7 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    //Esto crea usuarios con datos falsos para pruebas
     public function definition(): array
     {
         return [

@@ -62,7 +62,6 @@ class AdminisionController extends Controller
             'name' => 'required|max:50',
             'apellido' => 'required|max:50',
             'rut' => 'required|max:12|unique:users,rut,'.$admision->id,
-            'email' => 'required|email|max:50|unique:users,email,'.$admision->id,
             'password' => 'nullable|min:8|confirmed',
         ]);
 
@@ -70,7 +69,6 @@ class AdminisionController extends Controller
         $admision->name = $request->name;
         $admision->apellido = $request->apellido;
         $admision->rut = $request->rut;
-        $admision->email = $request->email;
         if($request->filled('password')) {
             // Solo actualiza la contraseña si se ha proporcionado una nueva
             $admision->password = Hash::make($request['password']);

@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        //Usuarios administrador creado
         User::create([
             'name' => 'Administrador',
             'apellido' => 'Consuelo',

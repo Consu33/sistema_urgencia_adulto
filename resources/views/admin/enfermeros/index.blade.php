@@ -13,7 +13,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Enfermeros Registrados</h3>
                     <div class="card-tools">
-                        <a href="{{ url('admin/enfermeros/create') }}" class="btn btn-primary">
+                        <a href="{{ url('admin/enfermeros/create') }}" class="btn btn-primary access-btn"><i class="bi bi-plus"></i>
                             Registrar Nuevo 
                         </a>
                     </div>
@@ -39,9 +39,9 @@
                                     <td style="text-align:center">{{ $enfermero->rut }}</td>
                                     <td style="text-align:center">
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{url('admin/enfermeros/'.$enfermero->id)}}" type="button" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                            <a href="{{url('admin/enfermeros/'.$enfermero->id.'/edit')}}" type="button" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i></a>
-                                            <a href="{{url('admin/enfermeros/'.$enfermero->id.'/confirm-delete')}}" type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                                            <a href="{{url('admin/enfermeros/'.$enfermero->id)}}" type="button" class="btn btn-info btn-sm action-btn" data-bs-toggle="tooltip" title="Ver detalles"><i class="bi bi-eye"></i></a>
+                                            <a href="{{url('admin/enfermeros/'.$enfermero->id.'/edit')}}" type="button" class="btn btn-success btn-sm action-btn" data-bs-toggle="tooltip" title="Editar información"><i class="bi bi-pencil"></i></a>
+                                            <a href="{{url('admin/enfermeros/'.$enfermero->id.'/confirm-delete')}}" type="button" class="btn btn-danger btn-sm action-btn" data-bs-toggle="tooltip" title="Eliminar registro"><i class="bi bi-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
