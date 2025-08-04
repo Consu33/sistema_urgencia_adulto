@@ -47,28 +47,12 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
                         <br>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <label for="">Contraseña</label>
-                                    <input type="password" name="password" class="form-control">
-                                    @error('password')
-                                        <small style="color:red">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form group">
-                                    <label for="">Verificación Contraseña</label>
-                                    <input type="password" name="password_confirmation" class="form-control">
-                                    @error('password_confirmation')
-                                        <small style="color:red">{{ $message }}</small>
-                                    @enderror
+                                    <label for="">Categoria paciente</label> <b>*</b>
                                 </div>
                             </div>
                         </div>

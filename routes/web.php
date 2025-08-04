@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\PacienteController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('index');
+        return view('index');
 });
 
 Auth::routes();

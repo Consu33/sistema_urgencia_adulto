@@ -7,20 +7,18 @@ use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
-    
+
     public function index()
     {
         $pacientes = Paciente::all();
         return view('admin.pacientes.index', compact('pacientes'));
     }
 
-    
     public function create()
     {
         return view('admin.pacientes.create');
     }
 
-    
     public function store(Request $request)
     {
         $request->validate([
@@ -41,7 +39,6 @@ class PacienteController extends Controller
             ->with('icono', 'success');
     }
 
-    
     public function show($id)
     {
         //variable + modelo
@@ -50,14 +47,12 @@ class PacienteController extends Controller
         return view('admin.pacientes.show', compact('paciente'));
     }
 
-    
     public function edit($id)
     {
         $paciente = Paciente::findOrFail($id);
         return view('admin.pacientes.edit', compact('paciente'));
     }
 
-    
     public function update(Request $request, $id)
     {
         $paciente = Paciente::find($id);
@@ -65,7 +60,7 @@ class PacienteController extends Controller
         $request->validate([
             'nombre' => 'required|max:50',
             'apellido' => 'required|max:50',
-            'rut' => 'required|max:12|unique:pacientes,rut,' .$paciente->id
+            'rut' => 'required|max:12|unique:pacientes,rut,' . $paciente->id
         ]);
 
         //actualizamos los datos del paciente
@@ -85,7 +80,7 @@ class PacienteController extends Controller
         $paciente = Paciente::findOrFail($id);
         return view('admin.pacientes.delete', compact('paciente'));
     }
-    
+
     public function destroy($id)
     {
         //Elimina una admision
@@ -93,7 +88,7 @@ class PacienteController extends Controller
         $paciente->delete();
 
         return redirect()->route('admin.pacientes.index')
-        ->with('mensaje','Registro Eliminado!')
-        ->with('icono','warning');
+            ->with('mensaje', 'Registro Eliminado!')
+            ->with('icono', 'warning');
     }
 }

@@ -15,6 +15,10 @@ return new class extends Migration
             $table->string('apellido');
             $table->string('rut', 12)->unique();
 
+            // Campos adicionales llenados por el enfermero
+            $table->foreignId('categoria_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('estado_id')->nullable()->constrained()->onDelete('cascade');
+
             $table->timestamps();
         });
     }

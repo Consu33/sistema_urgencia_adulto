@@ -12,46 +12,62 @@
             <div class="card card-info">
                 <div class="card-header">
                     <h3 class="card-title">Datos registrados</h3>
-                    <div class="card-tools">
-
-                    </div>
                 </div>
-                <div class="card-body" style="display: block;">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form group">
-                                <label for="">Nombre</label>
-                                <p>{{ $paciente->nombre }}</p>
+
+                <div class="card-body">
+                    <p><strong>Nombre:</strong> {{ $paciente->nombre }}</p>
+                    <p><strong>Apellido:</strong> {{ $paciente->apellido }}</p>
+                    <p><strong>RUT:</strong> {{ $paciente->rut }}</p>
+
+                    @if ($paciente->categoria && $paciente->estado)
+                        <p><strong>Categoría:</strong> {{ $paciente->categoria->codigo }} -
+                            {{ $paciente->categoria->nombre }}</p>
+                        <p><strong>Estado:</strong> {{ $paciente->estado->nombre }}</p>
+                    @else
+                        <form method="POST" action="{{ route('', $paciente->id) }}">
+                            @csrf
+                            @method('PUT')
+
+                            {{-- Selector de categoría --}}
+                            @if (!$paciente->categoria)
+                                <div class="form-group mt-2">
+                                    <label for="categoria_id"><strong>Categoría</strong></label>
+                                    <select name="categoria_id" id="categoria_id" class="form-control" required>
+                                        <option value="">Seleccionar...</option>
+                                        <option value="1">C1</option>
+                                        <option value="2">C2</option>
+                                        <option value="3">C3</option>
+                                        <option value="4">C4</option>
+                                        <option value="5">C5</option>
+                                    </select>
+                                </div>
+                            @endif
+
+                            {{-- Selector de estado --}}
+                            @if (!$paciente->estado)
+                                <div class="form-group mt-2">
+                                    <label for="estado_id"><strong>Estado</strong></label>
+                                    <select name="estado_id" id="estado_id" class="form-control" required>
+                                        <option value="">Seleccionar...</option>
+                                        <option value="1">En espera de atención</option>
+                                        <option value="2">En atención</option>
+                                    </select>
+                                </div>
+                            @endif
+
+                            <hr>
+
+                            {{-- Botones --}}
+                            <div class="form-group d-flex justify-content-between">
+                                <a href="{{ url('admin/pacientes') }}" class="btn btn-secondary">
+                                    <i class="bi bi-arrow-left"></i> Volver
+                                </a>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-save"></i> Actualizar
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form group">
-                                <label for="">Apellido</label>
-                                <p>{{ $paciente->apellido }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form group">
-                                <label for="">Rut</label>
-                                <p>{{  $paciente->rut  }}</p>
-                            </div>
-                        </div>
-                    </div>                    
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form group">
-                                <a href="{{ url('admin/pacientes') }}" class="btn btn-secondary cancel-btn">
-                                    <i class="bi bi-arrow-left"></i> Volver</a>
-                            </div>
-                        </div>
-                    </div>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>

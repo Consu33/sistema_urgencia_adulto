@@ -116,7 +116,7 @@
 </head>
 
 <body class="hold-transition login-page"
-    style="background-image: url({{ asset('assets/img/medicina-familiar-unibe.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    style="background-image: url({{ asset('assets/img/gallery/medicina-familiar-unibe.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
@@ -163,7 +163,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary btn-block">{{ __('Aceptar') }}</button>
+                            <button type="submit" class="btn btn-primary btn-block">Aceptar</button>
                         </div>
                     </div>
                 </form>
