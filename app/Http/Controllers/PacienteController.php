@@ -74,6 +74,24 @@ class PacienteController extends Controller
             ->with('icono', 'success');
     }
 
+    public function updateCategory($id) 
+    {
+        $paciente = Paciente::findOrFail($id);
+        $paciente->categoria_id = request('categoria_id');
+        $paciente->estado_id = request('estado_id');
+        $paciente->save();
+
+        return redirect()->route('admin.pacientes.condition')
+            ->with('mensaje', 'Estado del paciente actualizado exitosamente.')
+            ->with('icono', 'success'); 
+    }
+
+    public function condition()
+    {
+        $pacientes = Paciente::all(); 
+        return view('admin.pacientes.condition', compact('pacientes'));
+    }
+
     public function confirmDelete($id)
     {
         //Muestra la vista de confirmación de eliminación

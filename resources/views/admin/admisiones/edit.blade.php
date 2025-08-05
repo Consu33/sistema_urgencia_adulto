@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Edición de Usuario: {{ $admision->name . ' ' . $admision->apellido }}</h1>
+        <h1>Edición de Usuario: {{ $admision->nombre . ' ' . $admision->apellido }}</h1>
     </div>
 
     <hr>

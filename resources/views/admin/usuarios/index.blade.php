@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Usuarios Admision Urgencia Adulto</h1>
+        <h1>Usuarios Sistema Urgencia</h1>
     </div>
 
     <hr>
@@ -13,7 +13,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Usuarios Registrados</h3>
                     <div class="card-tools">
-                        <a href="{{ url('admin/admisiones/create') }}" class="btn btn-primary access-btn"><i class="bi bi-plus"></i>
+                        <a href="{{ url('admin/usuarios/create') }}" class="btn btn-primary access-btn"><i class="bi bi-plus"></i>
                             Registrar Nuevo Usuario
                         </a>
                     </div>
@@ -31,17 +31,17 @@
                         </thead>
                         <tbody>
                             <?php $contador = 1; ?>
-                            @foreach ($admisiones as $admision)
+                            @foreach ($usuarios as $usuario)
                                 <tr>
                                     <td style="text-align:center">{{ $contador++ }}</td>
-                                    <td style="text-align:center">{{ $admision->nombre }}</td>
-                                    <td style="text-align:center">{{ $admision->apellido }}</td>     
-                                    <td style="text-align:center">{{ $admision->rut }}</td>                                
+                                    <td style="text-align:center">{{ $usuario->name }}</td>
+                                    <td style="text-align:center">{{ $usuario->apellido }}</td>     
+                                    <td style="text-align:center">{{ $usuario->rut }}</td>                                
                                     <td style="text-align:center">
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{url('admin/admisiones/'.$admision->id)}}" type="button" class="btn btn-info btn-sm action-btn" data-bs-toggle="tooltip" title="Ver detalles"><i class="bi bi-eye"></i></a>
-                                            <a href="{{url('admin/admisiones/'.$admision->id.'/edit')}}" type="button" class="btn btn-success btn-sm action-btn" data-bs-toggle="tooltip" title="Editar información"><i class="bi bi-pencil"></i></a>
-                                            <a href="{{url('admin/admisiones/'.$admision->id.'/confirm-delete')}}" type="button" class="btn btn-danger btn-sm action-btn" data-bs-toggle="tooltip" title="Eliminar registros"><i class="bi bi-trash"></i></a>
+                                            <a href="{{url('admin/usuarios/'.$usuario->id)}}" type="button" class="btn btn-info btn-sm action-btn" data-bs-toggle="tooltip" title="Ver detalles"><i class="bi bi-eye"></i></a>
+                                            <a href="{{url('admin/usuarios/'.$usuario->id.'/edit')}}" type="button" class="btn btn-success btn-sm action-btn" data-bs-toggle="tooltip" title="Editar información"><i class="bi bi-pencil"></i></a>
+                                            <a href="{{url('admin/usuarios/'.$usuario->id.'/confirm-delete')}}" type="button" class="btn btn-danger btn-sm action-btn" data-bs-toggle="tooltip" title="Eliminar registros"><i class="bi bi-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -57,10 +57,10 @@
                                 dom: '<"row mb-2"<"col-sm-6"B><"col-sm-6"f>>' + '<"row"<"col-sm-12"tr>>' + '<"row mt-2"<"col-sm-5"i><"col-sm-7"p>>',
                                 language: {
                                     emptyTable: "No hay información",
-                                    info: "Mostrando _START_ a _END_ de _TOTAL_ Usuarios Admision",
-                                    infoEmpty: "Mostrando 0 a 0 de 0 Usuarios Admision",
-                                    infoFiltered: "(Filtrado de _MAX_ total Usuarios Admision)",
-                                    lengthMenu: "Mostrar _MENU_ Usuarios Admision",
+                                    info: "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
+                                    infoEmpty: "Mostrando 0 a 0 de 0 Usuarios",
+                                    infoFiltered: "(Filtrado de _MAX_ total Usuarios)",
+                                    lengthMenu: "Mostrar _MENU_ Usuarios",
                                     loadingRecords: "Cargando...",
                                     processing: "Procesando...",
                                     search: "Buscador:",

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Usuario: {{ $admision->nombre . ' ' . $admision->apellido }}</h1>
+        <h1>Usuario: {{ $usuario->name . ' ' . $usuario->apellido }}</h1>
     </div>
 
     <hr>
@@ -21,7 +21,7 @@
                         <div class="col-md-12">
                             <div class="form group">
                                 <label for="">Nombre</label>
-                                <p>{{ $admision->name }}</p>
+                                <p>{{ $usuario->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                         <div class="col-md-12">
                             <div class="form group">
                                 <label for="">Apellido</label> 
-                                <p>{{ $admision->apellido }}</p>
+                                <p>{{ $usuario->apellido }}</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <div class="col-md-12">
                             <div class="form group">
                                 <label for="">Rut</label> 
-                                <p>{{ $admision->rut }}</p>
+                                <p>{{ $usuario->rut }}</p>
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form group">
-                                <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary cancel-btn">
+                                <a href="{{ url('admin/usuarios') }}" class="btn btn-secondary cancel-btn">
                                     <i class="bi bi-arrow-left"></i> Volver</a>
                             </div>
                         </div>

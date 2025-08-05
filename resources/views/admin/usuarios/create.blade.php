@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Registro de usuarios admisión</h1>
+        <h1>Registro de usuarios</h1>
     </div>
 
     <hr>
@@ -17,14 +17,14 @@
                     </div>
                 </div>
                 <div class="card-body" style="display: block;">
-                    <form action="{{ url('/admin/admisiones/create') }}" method="POST" data-spinner-color="primary">
+                    <form action="{{ URL('/admin/usuarios/create') }}" method="POST" data-spinner-color="primary">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
                                     <label for="">Nombre</label> <b>*</b>
-                                    <input type="text" value="{{ old('nombre') }}" name="nombre" class="form-control" required>
-                                    @error('nombre')
+                                    <input type="text" value="{{ old('name') }}" name="name" class="form-control" required>
+                                    @error('name')
                                         <small style="color:red">{{ $message }}</small>
                                     @enderror
                                 </div>
@@ -82,7 +82,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form group">
-                                    <a href="{{ url('admin/admisiones') }}" class="btn btn-secondary cancel-btn">Cancelar</a>
+                                    <a href="{{ url('admin/usuarios') }}" class="btn btn-secondary cancel-btn">Cancelar</a>
                                     <button type="submit" class="btn btn-primary">
                                         <i class="bi bi-floppy"></i> Guardar
                                     </button>

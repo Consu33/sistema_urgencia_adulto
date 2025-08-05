@@ -48,14 +48,7 @@
                                 </div>
                             </div>
                         </div>                        
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form group">
-                                    <label for="">Categoria paciente</label> <b>*</b>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <hr>
                         <div class="row">
                             <div class="col-md-12">

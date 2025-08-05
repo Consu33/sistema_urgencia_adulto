@@ -24,6 +24,9 @@
                                 <div class="form group">
                                     <label for="">Nombre</label> <b>*</b>
                                     <input type="text" value="{{ old('nombre') }}" name="nombre" class="form-control" required>
+                                    @error('nombre')
+                                        <small style="color:red">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -33,6 +36,9 @@
                                 <div class="form group">
                                     <label for="">Apellido</label> <b>*</b>
                                     <input type="text" value="{{ old('apellido') }}" name="apellido" class="form-control" required>
+                                    @error('apellido')
+                                        <small style="color:red">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

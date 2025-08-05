@@ -1,0 +1,4 @@
+.bg-orange {
+    background-color: #fd7e14;
+    color: white; /* Para que el texto se vea bien sobre el fondo naranja */
+}

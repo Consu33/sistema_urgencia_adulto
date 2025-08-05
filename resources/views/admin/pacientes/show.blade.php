@@ -24,7 +24,7 @@
                             {{ $paciente->categoria->nombre }}</p>
                         <p><strong>Estado:</strong> {{ $paciente->estado->nombre }}</p>
                     @else
-                        <form method="POST" action="{{ route('', $paciente->id) }}">
+                        <form action="{{ url('/admin/pacientes/condition/' . $paciente->id) }}" method="POST">
                             @csrf
                             @method('PUT')
 
@@ -49,24 +49,22 @@
                                     <label for="estado_id"><strong>Estado</strong></label>
                                     <select name="estado_id" id="estado_id" class="form-control" required>
                                         <option value="">Seleccionar...</option>
-                                        <option value="1">En espera de atención</option>
-                                        <option value="2">En atención</option>
+                                        <option value="1">Ingresado</option>
+                                        <option value="2">En espera de atención</option>
+                                        <option value="3">En atención</option>
                                     </select>
                                 </div>
                             @endif
-
                             <hr>
-
-                            {{-- Botones --}}
-                            <div class="form-group d-flex justify-content-between">
-                                <a href="{{ url('admin/pacientes') }}" class="btn btn-secondary">
-                                    <i class="bi bi-arrow-left"></i> Volver
-                                </a>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="bi bi-save"></i> Actualizar
-                                </button>
-                            </div>
-                        </form>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Actualizar
+                            </button>
+                </div>
+                </form>
+                <div class="form-group d-flex justify-content-between">
+                    <a href="{{ url('admin/pacientes') }}" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </a>
                     @endif
                 </div>
             </div>
